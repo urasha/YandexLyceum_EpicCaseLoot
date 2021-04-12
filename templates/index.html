@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Epic case loot</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+          crossorigin="anonymous">
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div class="wrapper">
+        <header>
+            <nav>
+                <a href="/">
+                    <img src="../static/img/logo.png" alt="Лого сайта"
+                    width="100px" height="70px" id="logo">
+                </a>
+
+                <div class="nav-line">
+                    <a href="/" class="nav-a">Главная</a>
+                    <a href="#" class="nav-a">Доставка</a>
+                    <a href="#" class="nav-a">О нас</a>
+                </div>
+
+                {% if current_user.is_authenticated %}
+                    <div>
+                        <a class="navbar-brand" id="name" href="/logout">{{ current_user.username }}</a> <br>
+                        <div class="money">Баланс: {{ current_user.money }}</div>
+                        <a href="/"><img src="../static/img/plus.png" alt="Пополнить баланс"
+                                         width="17px" id="plus_money"></a>
+                    </div>
+
+                {% else %}
+                    <div class="nav-buttons">
+                        <a href="/register" class="btn btn-warning" id="btn-register"><b>Зарегистрироваться</b></a>
+                        <a href="/login" class="btn btn-warning" id="btn-login"><b>Войти</b></a>
+                    </div>
+                {% endif %}
+            </nav>
+        </header>
+
+        <main>
+             {% block content %}{% endblock %}
+        </main>
+
+        <footer>
+
+        </footer>
+    </div>
+
+</body>
+</html>

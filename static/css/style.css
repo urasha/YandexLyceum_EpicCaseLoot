@@ -1,0 +1,88 @@
+body {
+    margin: 20px 0px 0px 0px;
+    padding: 0;
+    background: #0d1116;
+}
+
+.wrapper {
+    margin: auto;
+    max-width: 1200px;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.nav-a:hover {
+    transition: all 0.5s ease-out;
+    transform: scale(1.2);
+    color: white;
+    text-decoration-color: red;
+}
+
+.nav-a {
+    padding-top: 20px;
+    padding-right: 30px;
+    color: white;
+    transition: all 0.5s ease-out;
+    transform: scale(1);
+}
+
+.nav-line {
+    font-size: 24px;
+    list-style-type: none;
+    color: white;
+    padding-top: 15px;
+}
+
+#btn-login, #btn-register {
+    margin-top: 20px;
+    height: 40px;
+    max-width: 200px;
+    border-radius: 50px 30px;
+}
+
+footer {
+    background: #09090d;
+}
+
+.win-bar {
+    margin-top: 25px;
+    height: 85px;
+    border: 3px solid red;
+}
+
+.form-container {
+    border: 2px solid #09090d;
+    border-radius: 35px;
+    padding: 20px;
+    background: #09090d;
+    margin-top: 25px;
+    color: white;
+}
+
+#name {
+    margin-top: 15px;
+    color: #25c441;
+    height: 30px;
+    padding: 0px;
+    transition: all 0.5s ease-out;
+    transform: scale(1);
+}
+
+#name:hover {
+    transition: all 0.5s ease-out;
+    transform: scale(1.2);
+}
+
+.money {
+    color: white;
+    font-size: 19px;
+    display: inline-block;
+}
+
+#plus_money {
+    margin-left: 5px;
+    margin-bottom: 3px;
+}
