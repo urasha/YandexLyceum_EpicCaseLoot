@@ -9,9 +9,12 @@ class User(SqlAlchemyBase, UserMixin):
 
     id = sqlalchemy.Column(sqlalchemy.Integer,
                            primary_key=True, autoincrement=True)
+    email = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     username = sqlalchemy.Column(sqlalchemy.String, nullable=False)
     hashed_password = sqlalchemy.Column(sqlalchemy.String, nullable=False)
-    money = sqlalchemy.Column(sqlalchemy.Integer, nullable=False, default=0 )
+    money = sqlalchemy.Column(sqlalchemy.Integer, nullable=False, default=0)
+    confirmed = sqlalchemy.Column(sqlalchemy.Boolean, nullable=False, default=False)
+    reg_pass = sqlalchemy.Column(sqlalchemy.String)
 
     def set_password(self, password):
         self.hashed_password = generate_password_hash(password)

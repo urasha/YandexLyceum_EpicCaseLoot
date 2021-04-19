@@ -12,13 +12,7 @@ body {
 nav {
     display: flex;
     justify-content: space-between;
-}
-
-.nav-a:hover {
-    transition: all 0.5s ease-out;
-    transform: scale(1.2);
-    color: white;
-    text-decoration-color: red;
+    align-items: baseline;
 }
 
 .nav-a {
@@ -29,22 +23,25 @@ nav {
     transform: scale(1);
 }
 
+.nav-a:hover {
+    transition: all 0.5s ease-out;
+    transform: scale(1.2);
+    color: white;
+    text-decoration-color: red;
+}
+
 .nav-line {
+    position: relative;
+    left: 90px;
     font-size: 24px;
     list-style-type: none;
     color: white;
-    padding-top: 15px;
 }
 
 #btn-login, #btn-register {
-    margin-top: 20px;
     height: 40px;
     max-width: 200px;
     border-radius: 50px 30px;
-}
-
-footer {
-    background: #09090d;
 }
 
 .win-bar {
@@ -54,10 +51,10 @@ footer {
 }
 
 .form-container {
-    border: 2px solid #09090d;
+    border: 2px solid #0b0e12;
     border-radius: 35px;
     padding: 20px;
-    background: #09090d;
+    background: #0b0e12;
     margin-top: 25px;
     color: white;
 }
@@ -85,4 +82,124 @@ footer {
 #plus_money {
     margin-left: 5px;
     margin-bottom: 3px;
+}
+
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-top: 30px;
+    color: #899baf;
+    font-size: 17px;
+}
+
+#footer-age {
+    padding: 2px 0px 0px 2px;
+    width: 36px;
+    height: 35px;
+    border: 2px solid #22292b;
+    border-radius: 45%;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 441px;
+    width: 357px;
+    background-color: #2a2d3e;
+    border-radius: 10px;
+    margin-top: 50px;
+}
+
+.open-box-button {
+    background: linear-gradient(180deg,#fce568,#ec982d);
+    padding: 14px 33px;
+    border-radius: 35px;
+    font-size: 16px;
+    font-weight: 500;
+    border-bottom: 4px solid #956421;
+    white-space: nowrap;
+    color: #000;
+    text-decoration: none;
+    text-align: center;
+    width: 300px;
+    margin-top: 20px;
+}
+
+.open-box-button:hover {
+    text-decoration: none;
+}
+
+.box-img {
+    transition: all 0.3s ease-out;
+    transform: scale(1);
+}
+
+.box-img:hover {
+    transition: all 0.3s ease-out;
+    transform: scale(0.9);
+}
+
+.price {
+    color: black;
+    background: rgb(249, 178, 55);
+    border-radius: 4px;
+    padding: 7px 25px 8.6px 25px;
+    position: relative;
+    left: 270px;
+    bottom: 260px;
+    font-size: 19px;
+    font-weight: 500;
+}
+
+.end-of-price {
+    position: relative;
+    left: 263px;
+    bottom: 256px;
+}
+
+.container-box {
+    height: 330px;
+}
+
+.box-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.box-title {
+    text-align: center;
+    color: white;
+    margin-top: 40px;
+}
+
+hr {
+    background: white;
+    width: 500px;
+}
+
+.case-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.price-line {
+    margin-top: 15px;
+    height: 85px;
+    width: 800px;
+    border: 3px solid red;
+}
+
+.case-container .open-box-button {
+    width: 160px;
+}
+
+#content-box {
+    margin-top: 70px;
+    color: white;
+    text-align: center;
 }
