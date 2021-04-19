@@ -163,6 +163,10 @@ footer {
     height: 330px;
 }
 
+.container-box:hover {
+    text-decoration: none;
+}
+
 .box-group {
     display: flex;
     flex-wrap: wrap;
