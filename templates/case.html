@@ -5,15 +5,16 @@
         <div class="box-title">
             <hr><h2>{{ name }}</h2><hr>
         </div>
-
-        <div class="price-line">
+        <div id="slider">
+            <div id="line">
+                <img src="../static/img/phone_1.png" alt="phone" class='slider-img'>
+                <img src="../static/img/phone_2.png" alt="phone" class='slider-img'>
+                <img src="../static/img/phone_3.png" alt="phone" class='slider-img'>
+                <img src="../static/img/phone_4.png" alt="phone" class='slider-img'>
+                <img src="../static/img/phone_5.png" alt="phone" class='slider-img'>
+            </div>
+            <div id="active-item"></div>
         </div>
-
-        <a class="open-box-button">Открыть</a>
-
-        <h2 id="content-box">Коробка содержит</h2>
-        <div class="box-items">
-
-        </div>
+        <a href="#" class="open-box-button">Открыть</a>
     </div>
 {% endblock %}

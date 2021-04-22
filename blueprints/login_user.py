@@ -23,11 +23,15 @@ def login():
     if form.validate_on_submit():
         db_sess = db_session.create_session()
         user = db_sess.query(users.User).filter(users.User.username == form.username.data).first()
+        if not user:
+            return render_template('login.html',
+                                   message='Такого пользователя нет',
+                                   form=form)
         if not user.confirmed and user.reg_pass:
             return render_template('login.html',
                                    message="Подтвердите почту",
                                    form=form)
-        if user and user.check_password(form.password.data):
+        if user.check_password(form.password.data):
             login_user(user, remember=form.remember_me.data)
             return redirect("/")
         return render_template('login.html',

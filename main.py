@@ -5,6 +5,7 @@ from blueprints import login_user, register_user, open_case
 from data.users import User
 from flask_login import LoginManager, current_user
 from flask_mail import Mail
+import threading
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5a9v2DoYgriGnnk7UO22Br70WZK2NY'
@@ -13,7 +14,7 @@ app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
 app.config['MAIL_USERNAME'] = 'urasha24@gmail.com'
 app.config['MAIL_DEFAULT_SENDER'] = 'urasha24@gmail.com'
-app.config['MAIL_PASSWORD'] = 'galaxyTab4'
+app.config['MAIL_PASSWORD'] = '31323435dD'
 mail = Mail(app)
 
 login_manager = LoginManager()

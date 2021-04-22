@@ -6,12 +6,21 @@ from flask_mail import Message
 from main import mail
 from random import choice
 from string import ascii_letters
+import threading
 
 blueprint = Blueprint(
     'register_user',
     __name__,
     template_folder='templates'
 )
+
+
+def delete_user():
+    db_sess = db_session.create_session()
+    answers = db_sess.query(User).filter(User.confirmed == 0).all()
+    for i in answers:
+        db_sess.delete(i)
+    db_sess.commit()
 
 
 @blueprint.route('/register', methods=['GET', 'POST'])
@@ -44,6 +53,9 @@ def register():
         msg.html = f"Чтобы подтвердить почту, пройдите по ссылке:\n" \
                    f"http://127.0.0.1:8080/register/{reg_pass}"
         mail.send(msg)
+
+        timer = threading.Timer(300, delete_user)
+        timer.start()
 
         return redirect('/login')
     return render_template('register.html', title='Регистрация', form=form)

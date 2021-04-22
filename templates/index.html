@@ -8,8 +8,10 @@
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
+    <script src="../static/js/script.js" defer></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
-<body>
+<body class="darkBg">
     <div class="wrapper">
         <header>
             <nav>
@@ -53,5 +55,19 @@
             <span>Copyright © 2021</span> <span id="footer-age">18+</span>
         </footer>
     </div>
+
+    <script src="../static/js/snow/snowfall.jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+
+            document.body.className  = "darkBg";
+
+            $(document).snowfall({
+                flakeCount: 30
+            });
+
+        });
+    </script>
 </body>
 </html>
