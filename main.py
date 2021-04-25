@@ -5,13 +5,16 @@ from blueprints import login_user, register_user, open_case
 from data.users import User
 from flask_login import LoginManager, current_user
 from flask_mail import Mail
-import threading
+from cloudipsp import Api, Checkout
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '5a9v2DoYgriGnnk7UO22Br70WZK2NY'
 app.config['MAIL_SERVER'] = 'smtp.googlemail.com'
 app.config['MAIL_PORT'] = 587
 app.config['MAIL_USE_TLS'] = True
+
+# только почту мою не крадите :(
+
 app.config['MAIL_USERNAME'] = 'urasha24@gmail.com'
 app.config['MAIL_DEFAULT_SENDER'] = 'urasha24@gmail.com'
 app.config['MAIL_PASSWORD'] = '31323435dD'
@@ -27,9 +30,33 @@ def load_user(user_id):
     return db_sess.query(User).get(user_id)
 
 
+@app.route('/pay/<int:money>')
+def buy(money):
+    # в системе оплаты уже не регался, чтобы прям оплату делать
+    api = Api(merchant_id=1396424,
+              secret_key='test')
+    checkout = Checkout(api=api)
+    data = {
+        "currency": "RUB",
+        "amount": str(money) + '00'
+    }
+    url = checkout.url(data).get('checkout_url')
+    return redirect(url)
+
+
 @app.route('/')
 def main_page():
     return render_template('main.html')
+
+
+@app.route('/delivery')
+def delivery():
+    return render_template('delivery.html')
+
+
+@app.route('/questions')
+def about_us():
+    return render_template('questions.html')
 
 
 def main():

@@ -40,7 +40,7 @@ def register():
 
         reg_pass = ''.join(choice(ascii_letters) for i in range(55))
         user = User(
-            username=form.username.data,
+            username=form.username.data.title(),
             email=form.email.data,
             reg_pass=reg_pass
         )

@@ -1,20 +1,46 @@
 {% extends 'index.html' %}
 
 {% block content %}
+    <a href="/"
+       class="button-rounding_dark">
+        &lt; Вернуться к списку коробок
+    </a>
     <div class="case-container">
         <div class="box-title">
-            <hr><h2>{{ name }}</h2><hr>
+            <hr>
+            <h2>{{ name }}</h2>
+            <hr>
         </div>
+
         <div id="slider">
             <div id="line">
-                <img src="../static/img/phone_1.png" alt="phone" class='slider-img'>
-                <img src="../static/img/phone_2.png" alt="phone" class='slider-img'>
-                <img src="../static/img/phone_3.png" alt="phone" class='slider-img'>
-                <img src="../static/img/phone_4.png" alt="phone" class='slider-img'>
-                <img src="../static/img/phone_5.png" alt="phone" class='slider-img'>
+                {% block case_content %}
+                {% endblock %}
             </div>
             <div id="active-item"></div>
         </div>
-        <a href="#" class="open-box-button">Открыть</a>
+
+        {% if current_user.is_authenticated %}
+            <a href="#" class="open-box-button active-button">Открыть</a>
+        {% else %}
+            <a href="#" class="open-box-button open-popup">Открыть</a>
+        {% endif %}
+    </div>
+    <div class="popup-bg">
+        <div class="popup">
+            <img class="close-popup" src="../static/img/cross.svg" width="15" alt="cross">
+            <p>Чтобы открыть кейс, вам нужно войти на сайт</p>
+            <div class="nav-buttons">
+                <a href="/register" class="btn btn-warning" id="btn-register"><b>Зарегистрироваться</b></a>
+                <a href="/login" class="btn btn-warning" id="btn-login"><b>Войти</b></a>
+            </div>
+        </div>
+    </div>
+    <div class="popup-bg-2">
+        <div class="popup-2">
+            <img class="close-popup-2" src="../static/img/cross.svg" width="15" alt="cross">
+            <h3>Поздравляем!</h3>
+            <h4>Вы выиграли: <span id="price-win"></span></h4>
+        </div>
     </div>
 {% endblock %}

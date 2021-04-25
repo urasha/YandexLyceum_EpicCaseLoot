@@ -3,12 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <title>Epic case loot</title>
+    <link rel="shortcut icon" href="../static/img/logo.png" type="image/x-icon">
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
           crossorigin="anonymous">
     <link rel="stylesheet" href="../static/css/style.css">
     <script src="../static/js/script.js" defer></script>
+    <script src="../static/js/popup.js" defer></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 </head>
 <body class="darkBg">
@@ -22,18 +24,28 @@
 
                 <div class="nav-line">
                     <a href="/" class="nav-a">Главная</a>
-                    <a href="#" class="nav-a">Доставка</a>
-                    <a href="#" class="nav-a">О нас</a>
+                    <a href="/delivery" class="nav-a">Доставка</a>
+                    <a href="/questions" class="nav-a">Вопросы и ответы</a>
                 </div>
 
                 {% if current_user.is_authenticated %}
                     <div>
                         <a class="navbar-brand" id="name" href="/logout">{{ current_user.username }}</a> <br>
-                        <div class="money">Баланс: {{ current_user.money }}</div>
-                        <a href="/"><img src="../static/img/plus.png" alt="Пополнить баланс"
+                        <div class="money">Баланс: <span id="cost"></span></div>
+                        <a href="/" class="open-popup"><img src="../static/img/plus.png" alt="Пополнить баланс"
                                          width="17px" id="plus_money"></a>
+                        <div class="popup-bg">
+                            <div class="popup">
+                                <img class="close-popup" src="../static/img/cross.svg" width="15" alt="">
+                                <p>На сколько хотите пополнить баланс?</p>
+                                <div class="costs">
+                                    <a href='/pay/100' class="payment">100₽</a>
+                                    <a href='/pay/550' class="payment">500₽</a>
+                                    <a href='/pay/1000' class="payment">1000₽</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
                 {% else %}
                     <div class="nav-buttons">
                         <a href="/register" class="btn btn-warning" id="btn-register"><b>Зарегистрироваться</b></a>
@@ -41,10 +53,6 @@
                     </div>
                 {% endif %}
             </nav>
-
-            <div class="win-bar">
-
-            </div>
         </header>
 
         <main>
@@ -56,8 +64,8 @@
         </footer>
     </div>
 
+    <!--Падающий на фоне снег-->
     <script src="../static/js/snow/snowfall.jquery.min.js"></script>
-
     <script>
         $(document).ready(function() {
 

@@ -7,3 +7,4 @@ class Case(SqlAlchemyBase):
 
     name = sqlalchemy.Column(sqlalchemy.String, nullable=False, primary_key=True)
     name_user = sqlalchemy.Column(sqlalchemy.String, nullable=False)
+    cost = sqlalchemy.Column(sqlalchemy.Integer, nullable=False)
