@@ -10,3 +10,7 @@ $('.close-popup').click(function() {
 $('.close-popup-2').click(function() {
     $('.popup-bg-2').fadeOut(500);
 });
+
+$('.close-popup-btn').click(function() {
+    $('.popup-bg-2').fadeOut(500);
+});

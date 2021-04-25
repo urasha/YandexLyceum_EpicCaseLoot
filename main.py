@@ -54,6 +54,11 @@ def delivery():
     return render_template('delivery.html')
 
 
+@app.route('/error_delivery')
+def error_delivery():
+    return render_template('error_delivery.html')
+
+
 @app.route('/questions')
 def about_us():
     return render_template('questions.html')
